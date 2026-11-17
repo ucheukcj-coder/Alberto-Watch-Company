@@ -1,0 +1,130 @@
+[
+  {
+    "id": "datejust-36",
+    "brand": "Rolex",
+    "model": "Datejust 36",
+    "price": 10950,
+    "category": "luxury",
+    "image": "https://framerusercontent.com/images/0tiTwcBk6TJu2RiAO5Z9f93RmU.jpg?scale-down-to=1024&width=1600&height=1067",
+    "alt": "Datejust-style watch photographed against a dark background",
+    "description": "A versatile, enduring design selected for the Alberto sample catalogue.",
+    "specifications": [
+      ["Movement", "Automatic; confirm exact reference"],
+      ["Display", "Analog with date"],
+      ["Case", "36 mm, representative size"],
+      ["Condition", "Confirm with the store"]
+    ]
+  },
+  {
+    "id": "submariner-date",
+    "brand": "Rolex",
+    "model": "Submariner Date",
+    "price": 14500,
+    "category": "luxury",
+    "image": "https://framerusercontent.com/images/xUFPKDxXEYQEV8DE80g3vuu6c.jpg?scale-down-to=1024&width=1600&height=1280",
+    "alt": "Submariner-style watch shown in a product photograph",
+    "description": "A confident sports-watch silhouette in the illustrative Alberto selection.",
+    "specifications": [
+      ["Movement", "Automatic; confirm exact reference"],
+      ["Display", "Analog with date"],
+      ["Case", "Steel; exact reference to be confirmed"],
+      ["Condition", "Confirm with the store"]
+    ]
+  },
+  {
+    "id": "runway-chronograph",
+    "brand": "Michael Kors",
+    "model": "Runway Chronograph",
+    "price": 275,
+    "category": "classic",
+    "image": "https://framerusercontent.com/images/qJjIEwmj7Z3Cew7m8uaMWB0m5I.jpg?scale-down-to=1024&width=1600&height=2400",
+    "alt": "Classic chronograph-style watch",
+    "description": "A polished everyday chronograph included as a representative catalogue item.",
+    "specifications": [
+      ["Movement", "Quartz; confirm exact reference"],
+      ["Display", "Analog chronograph"],
+      ["Case", "Exact size to be confirmed"],
+      ["Condition", "Confirm with the store"]
+    ]
+  },
+  {
+    "id": "lexington",
+    "brand": "Michael Kors",
+    "model": "Lexington",
+    "price": 295,
+    "category": "classic",
+    "image": "https://framerusercontent.com/images/NoidKJPMaZkpfhTUj2cI2f1cZIY.jpg?scale-down-to=1024&width=1600&height=2000",
+    "alt": "Classic metal-bracelet watch",
+    "description": "A clean, versatile design from the sample Alberto selection.",
+    "specifications": [
+      ["Movement", "Quartz; confirm exact reference"],
+      ["Display", "Analog"],
+      ["Case", "Exact size to be confirmed"],
+      ["Condition", "Confirm with the store"]
+    ]
+  },
+  {
+    "id": "promaster-diver",
+    "brand": "Citizen Eco-Drive",
+    "model": "Promaster Diver",
+    "price": 395,
+    "category": "classic",
+    "image": "https://framerusercontent.com/images/4lUXPlAjVZR5kqVLCj1IxHoJhVk.jpg?scale-down-to=1024&width=1600&height=2399",
+    "alt": "Diver-style watch from the sample collection",
+    "description": "A practical, sport-focused timepiece in the representative catalogue.",
+    "specifications": [
+      ["Movement", "Light-powered Eco-Drive; confirm exact reference"],
+      ["Display", "Analog"],
+      ["Water resistance", "Confirm exact reference before use in water"],
+      ["Condition", "Confirm with the store"]
+    ]
+  },
+  {
+    "id": "corso",
+    "brand": "Citizen Eco-Drive",
+    "model": "Corso",
+    "price": 325,
+    "category": "classic",
+    "image": "https://framerusercontent.com/images/dyLoAVVKlYIIqDK90Z05yL2huU.jpg?scale-down-to=1024&width=1600&height=2400",
+    "alt": "Refined classic watch from the sample collection",
+    "description": "A considered everyday watch with a restrained, classic profile.",
+    "specifications": [
+      ["Movement", "Light-powered Eco-Drive; confirm exact reference"],
+      ["Display", "Analog"],
+      ["Case", "Exact size to be confirmed"],
+      ["Condition", "Confirm with the store"]
+    ]
+  },
+  {
+    "id": "lunar-pilot",
+    "brand": "Bulova",
+    "model": "Lunar Pilot",
+    "price": 695,
+    "category": "vintage",
+    "image": "https://framerusercontent.com/images/ljkhMdsG2Uxbx4eMRiB6f7de0Q.jpg?scale-down-to=1024&width=1600&height=1067",
+    "alt": "Chronograph watch with a heritage-inspired design",
+    "description": "A heritage-inspired chronograph included in the illustrative selection.",
+    "specifications": [
+      ["Movement", "Quartz chronograph; confirm exact reference"],
+      ["Display", "Analog chronograph"],
+      ["Case", "Exact size to be confirmed"],
+      ["Condition", "Confirm with the store"]
+    ]
+  },
+  {
+    "id": "classic-surveyor",
+    "brand": "Bulova",
+    "model": "Classic Surveyor",
+    "price": 350,
+    "category": "vintage",
+    "image": "https://framerusercontent.com/images/NV7YZy9LhpCvo00mkRGKUpbWNs.jpg?scale-down-to=1024&width=1600&height=1067",
+    "alt": "Traditional analog watch from the sample catalogue",
+    "description": "A traditional analog watch with a timeless, heritage-led appearance.",
+    "specifications": [
+      ["Movement", "Confirm exact reference"],
+      ["Display", "Analog"],
+      ["Case", "Exact size to be confirmed"],
+      ["Condition", "Confirm with the store"]
+    ]
+  }
+]
