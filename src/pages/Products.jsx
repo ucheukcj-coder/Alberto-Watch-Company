@@ -2,7 +2,9 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard.jsx";
 import ProductModal from "../components/ProductModal.jsx";
+import GalleryLightbox from "../components/GalleryLightbox.jsx";
 import SectionIntro from "../components/SectionIntro.jsx";
+import detailImages from "../data/detailImages.json";
 import watches from "../data/watches.json";
 
 const categories = [
@@ -43,6 +45,7 @@ export default function Products() {
     ? queryCategory
     : "all";
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     if (activeCategory !== "all") {
@@ -59,6 +62,7 @@ export default function Products() {
   );
 
   const closeProductModal = useCallback(() => setSelectedProduct(null), []);
+  const closeImageLightbox = useCallback(() => setSelectedImage(null), []);
 
   function chooseCategory(categoryId) {
     const nextCategory = activeCategory === categoryId ? "all" : categoryId;
@@ -141,7 +145,31 @@ export default function Products() {
           )}
         </div>
       </section>
+      <section className="page-section collection-detail-section">
+        <div className="content-width">
+          <SectionIntro
+            eyebrow="03 / The finer details"
+            title="A closer look at the collection."
+            description="Discover the finishing and craftsmanship behind the pieces we curate."
+          />
+          <div className="collection-detail-grid">
+            {detailImages.map((image) => (
+              <button
+                className="collection-detail-image"
+                key={image.src}
+                type="button"
+                aria-label={`Enlarge image: ${image.caption}`}
+                onClick={() => setSelectedImage(image)}
+              >
+                <img src={image.src} alt={image.alt} loading="lazy" />
+                <span>{image.caption}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
       <ProductModal product={selectedProduct} onClose={closeProductModal} />
+      <GalleryLightbox image={selectedImage} onClose={closeImageLightbox} />
     </>
   );
 }

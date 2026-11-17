@@ -27,9 +27,8 @@
 }
 
 .site-header-home {
-  position: absolute;
-  inset: 0 0 auto;
-  background: transparent;
+  position: relative;
+  background: var(--color-background);
 }
 
 .header-inner {
@@ -220,6 +219,7 @@
 }
 
 .hero-image {
+  position: relative;
   align-self: stretch;
   min-height: 650px;
   overflow: hidden;
@@ -231,6 +231,227 @@
   min-height: 650px;
   object-fit: cover;
   object-position: center;
+}
+
+.home-watch-slider {
+  width: min(1280px, calc(100% - 48px));
+  margin: 28px auto 80px;
+}
+
+.home-watch-slider-frame {
+  position: relative;
+  height: clamp(180px, 22vw, 280px);
+  overflow: hidden;
+  background: var(--color-panel);
+}
+
+.home-watch-slider-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.home-watch-slider-caption {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 10px 14px;
+  color: var(--color-white);
+  background: rgb(8 8 8 / 84%);
+  font-size: 13px;
+}
+
+.home-watch-slider-caption span {
+  color: var(--color-gold);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.home-watch-slider-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transform: translateY(-50%);
+  border: 1px solid rgb(255 255 255 / 30%);
+  color: var(--color-white);
+  background: rgb(8 8 8 / 72%);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.home-watch-slider-arrow:hover,
+.home-watch-slider-arrow:focus-visible {
+  color: var(--color-gold);
+  background: var(--color-background);
+}
+
+.home-watch-slider-arrow.is-previous {
+  left: 16px;
+}
+
+.home-watch-slider-arrow.is-next {
+  right: 16px;
+}
+
+.home-watch-slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+.home-watch-slider-dots {
+  display: flex;
+}
+
+.home-watch-slider-dot,
+.home-watch-slider-pause {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  color: var(--color-white);
+  background: transparent;
+  cursor: pointer;
+}
+
+.home-watch-slider-dot::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-muted);
+  content: "";
+  transition: width 180ms ease, border-radius 180ms ease, background-color 180ms ease;
+}
+
+.home-watch-slider-dot.is-active::before {
+  width: 18px;
+  border-radius: 5px;
+  background: var(--color-gold);
+}
+
+.home-watch-slider-pause {
+  border: 1px solid var(--color-line);
+  color: var(--color-gold);
+}
+
+.home-watch-slider-pause:hover,
+.home-watch-slider-pause:focus-visible {
+  background: var(--color-panel);
+}
+
+.home-store-section {
+  background: var(--color-panel);
+}
+
+.collection-detail-section {
+  background: var(--color-background);
+}
+
+.collection-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.collection-detail-image {
+  position: relative;
+  display: block;
+  height: 280px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: var(--color-panel);
+  text-align: left;
+  cursor: zoom-in;
+}
+
+.collection-detail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 450ms ease;
+}
+
+.collection-detail-image:hover img,
+.collection-detail-image:focus-visible img {
+  transform: scale(1.035);
+}
+
+.collection-detail-image span {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  padding: 10px 12px;
+  color: var(--color-white);
+  background: rgb(8 8 8 / 84%);
+  font-size: 11px;
+}
+
+.home-brand-filter {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.home-brand-filter-label {
+  color: var(--color-muted);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-brand-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.home-brand-option {
+  min-height: 40px;
+  padding: 10px 15px;
+  border: 1px solid var(--color-line);
+  color: var(--color-muted);
+  background: transparent;
+  font-size: 11px;
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.home-brand-option:hover,
+.home-brand-option.is-active {
+  border-color: var(--color-gold);
+  color: var(--color-background);
+  background: var(--color-gold);
+}
+
+.home-brand-status {
+  margin: 0 0 20px;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.home-store-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 36px;
 }
 
 .page-section {
@@ -1025,6 +1246,16 @@
     display: block;
   }
 
+  .primary-navigation {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin: 0;
+    padding: 8px 0 12px;
+  }
+
   .site-header-home .primary-navigation {
     position: absolute;
     z-index: 1;
@@ -1101,14 +1332,10 @@
     padding: 0;
   }
 
-  .site-header-home {
-    position: absolute;
-  }
-
   .hero-content {
     width: calc(100% - 48px);
     margin-inline: auto;
-    padding: 86px 0 32px;
+    padding: 48px 0 32px;
   }
 
   .hero .eyebrow {
@@ -1175,7 +1402,6 @@
   }
 
   .category-grid,
-  .product-grid,
   .feature-grid,
   .gallery-grid,
   .faq-grid {
@@ -1209,11 +1435,55 @@
   }
 
   .product-image-button {
-    height: 270px;
+    height: clamp(140px, 45vw, 180px);
   }
 
   .product-grid {
-    row-gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 14px;
+  }
+
+  .product-card-content {
+    padding: 12px 9px 0;
+  }
+
+  .product-brand {
+    font-size: 9px;
+  }
+
+  .product-card h3 {
+    font-size: clamp(18px, 5.8vw, 22px);
+  }
+
+  .product-price {
+    font-size: 12px;
+  }
+
+  .product-actions {
+    gap: 8px;
+    font-size: 10px;
+  }
+
+  .product-checkout-link {
+    font-size: 10px;
+  }
+
+  .collection-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .collection-detail-image {
+    height: 180px;
+  }
+
+  .collection-detail-image span {
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    padding: 8px;
+    font-size: 10px;
   }
 
   .feature-grid {

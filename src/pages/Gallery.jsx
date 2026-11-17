@@ -1,20 +1,8 @@
 import { useCallback, useState } from "react";
 import GalleryLightbox from "../components/GalleryLightbox.jsx";
 import SectionIntro from "../components/SectionIntro.jsx";
+import detailImages from "../data/detailImages.json";
 import watches from "../data/watches.json";
-
-const editorialImages = [
-  {
-    src: "https://framerusercontent.com/images/1Xhl8IwUI87w4IOhEXiMFzU7pG0.jpg?scale-down-to=1024&width=1200&height=675",
-    alt: "Watch detail photographed in a studio",
-    caption: "A closer look at the details",
-  },
-  {
-    src: "https://framerusercontent.com/images/uHUGSONPeA9Xd00bOpJBvxvtywI.jpg?scale-down-to=1024&width=1200&height=795",
-    alt: "Watch craftsmanship detail",
-    caption: "Craftsmanship in focus",
-  },
-];
 
 const images = [
   ...watches.map((watch) => ({
@@ -22,7 +10,7 @@ const images = [
     alt: watch.alt,
     caption: `${watch.brand} ${watch.model}`,
   })),
-  ...editorialImages,
+  ...detailImages,
 ];
 
 export default function Gallery() {
