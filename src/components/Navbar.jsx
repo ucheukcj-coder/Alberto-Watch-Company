@@ -1,6 +1,8 @@
+
 import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import useVisitorCount from "../hooks/useVisitorCount.js";
+import { useCart } from "../context/CartContext.jsx";
 
 const links = [
   ["/", "Home"],
@@ -16,6 +18,7 @@ const links = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { count, error } = useVisitorCount();
+  const { cartCount } = useCart();
   const location = useLocation();
 
   useEffect(() => {
@@ -63,11 +66,25 @@ export default function Navbar() {
               key={to}
               to={to}
               end={to === "/"}
-              className={({ isActive }) => (isActive ? "nav-link is-active" : "nav-link")}
+              className={({ isActive }) =>
+                isActive ? "nav-link is-active" : "nav-link"
+              }
             >
               {label}
             </NavLink>
           ))}
+
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              `nav-link cart-nav-link${isActive ? " is-active" : ""}`
+            }
+            aria-label={`Shopping bag, ${cartCount} items`}
+          >
+            <span aria-hidden="true">♧</span>
+            Bag
+            <span className="cart-count">{cartCount}</span>
+          </NavLink>
         </nav>
       </div>
     </header>

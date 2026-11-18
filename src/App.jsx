@@ -1,7 +1,10 @@
+
 import { Navigate, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
 import Navbar from "./components/Navbar.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
 import About from "./pages/About.jsx";
+import Cart from "./pages/Cart.jsx";
 import Checkout from "./pages/Checkout.jsx";
 import Contact from "./pages/Contact.jsx";
 import Gallery from "./pages/Gallery.jsx";
@@ -14,8 +17,9 @@ import Technology from "./pages/Technology.jsx";
 
 export default function App() {
   return (
-    <>
+    <CartProvider>
       <Navbar />
+
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -27,11 +31,13 @@ export default function App() {
           <Route path="/support" element={<Support />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/sitemap" element={<Sitemap />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+
       <Footer />
-    </>
+    </CartProvider>
   );
 }
