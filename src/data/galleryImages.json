@@ -48,5 +48,53 @@
     "src": "https://images.unsplash.com/photo-1639006570490-79c0c53f1080?auto=format&fit=crop&w=1400&q=85",
     "alt": "Watch photographed for a close-up product view",
     "caption": "Made to be treasured"
-  }
+  },
+
+
+{
+  "src": "https://images.unsplash.com/photo-1688430376809-9abb38039689?auto=format&fit=crop&w=1400&q=85",
+  "alt": "Luxury watch photographed on a dark surface",
+  "caption": "A dramatic study of time"
+},
+{
+  "src": "https://images.unsplash.com/photo-1657235895095-e043ce2ebf41?auto=format&fit=crop&w=1400&q=85",
+  "alt": "Steel wristwatch against a black background",
+  "caption": "Precision against the dark"
+},
+{
+  "src": "https://images.unsplash.com/photo-1661030418924-52142661241d?auto=format&fit=crop&w=1400&q=85",
+  "alt": "Seiko chronograph watch in a clean product photograph",
+  "caption": "A classic chronograph"
+},
+{
+  "src": "https://images.unsplash.com/photo-1704783327986-9dfcbfe543bd?auto=format&fit=crop&w=1400&q=85",
+  "alt": "Luxury wristwatch worn in a lifestyle setting",
+  "caption": "Elegance in everyday life"
+},
+{
+  "src": "https://images.unsplash.com/photo-1704428303280-84768603d539?auto=format&fit=crop&w=1400&q=85",
+  "alt": "Blue and gold wristwatch",
+  "caption": "A bold expression of style"
+},
+{
+  "src": "https://images.unsplash.com/photo-1702865053958-71ec751c4118?auto=format&fit=crop&w=1400&q=85",
+  "alt": "Luxury wristwatch photographed up close",
+  "caption": "Luxury in every detail"
+},
+{
+  "src": "https://images.unsplash.com/photo-1636639821444-479368c96514?auto=format&fit=crop&w=1400&q=85",
+  "alt": "Black luxury wristwatch",
+  "caption": "Understated sophistication"
+},
+{
+  "src": "https://images.unsplash.com/photo-1715776314938-c7b1ab69ad80?auto=format&fit=crop&w=1400&q=85",
+  "alt": "Tissot PRX wristwatch product photograph",
+  "caption": "Modern watchmaking"
+},
+{
+  "src": "https://images.unsplash.com/photo-1649357585015-179ed98f513d?auto=format&fit=crop&w=1400&q=85",
+  "alt": "Rolex Datejust wristwatch",
+  "caption": "An enduring classic"
+}
+
 ]
