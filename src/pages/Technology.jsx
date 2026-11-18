@@ -4,22 +4,22 @@ const technologies = [
   {
     title: "Automatic Movement",
     description:
-      "Powered by your movement. An intricate mechanical calibre turns everyday motion into lasting precision.",
+      "An automatic watch uses the movement of your wrist to rotate an internal rotor, which winds the mainspring. The mainspring stores energy and gradually releases it to power the watch. If left unworn for too long, the watch may stop.",
   },
   {
     title: "Quartz Movement",
     description:
-      "A vibrating quartz crystal delivers remarkable accuracy with minimal maintenance.",
+      "Citizen's Eco-Drive technology converts light into electrical energy, which is stored to power the watch. This reduces the need for regular battery replacements. ",
   },
   {
     title: "Eco-Drive Technology",
     description:
-      "Light becomes energy. Citizen’s technology powers a watch without regular battery changes.",
+      "Citizen's Eco-Drive technology converts light into electrical energy, which is stored to power the watch. This reduces the need for regular battery replacements.",
   },
   {
     title: "Smartwatch Technology",
     description:
-      "Intelligent features bring connectivity, activity insights and everyday convenience to your wrist.",
+      "Smartwatches combine digital technology with traditional timekeeping. Depending on the model, they can offer smartphone connectivity, notifications, activity tracking and other useful features.",
   },
 ];
 

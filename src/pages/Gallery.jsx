@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import GalleryLightbox from "../components/GalleryLightbox.jsx";
 import SectionIntro from "../components/SectionIntro.jsx";
 import detailImages from "../data/detailImages.json";
+import galleryImages from "../data/galleryImages.json";
 import watches from "../data/watches.json";
 
 const images = [
@@ -11,6 +12,7 @@ const images = [
     caption: `${watch.brand} ${watch.model}`,
   })),
   ...detailImages,
+  ...galleryImages,
 ];
 
 export default function Gallery() {
@@ -21,7 +23,13 @@ export default function Gallery() {
     <section className="page-section gallery-section">
       <div className="content-width">
         <SectionIntro eyebrow="05 / Through our lens" title="Details worth a second look." />
-        <div className="gallery-grid">
+        <p className="gallery-scroll-hint">Swipe or scroll to explore all {images.length} images.</p>
+        <div
+          className="gallery-grid"
+          role="region"
+          aria-label="Watch photography gallery"
+          tabIndex={0}
+        >
           {images.map((image, index) => (
             <button
               className="gallery-image"

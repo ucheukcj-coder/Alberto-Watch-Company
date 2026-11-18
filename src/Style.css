@@ -843,6 +843,10 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.gallery-scroll-hint {
+  display: none;
+}
+
 .gallery-image {
   position: relative;
   display: block;
@@ -1403,10 +1407,27 @@
 
   .category-grid,
   .feature-grid,
-  .gallery-grid,
   .faq-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 18px;
+  }
+
+  .gallery-grid {
+    grid-auto-columns: minmax(0, 92%);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding-bottom: 12px;
+    scroll-padding-inline: 1px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--color-gold) var(--color-panel);
+    scrollbar-width: thin;
+    gap: 14px;
+  }
+
+  .gallery-scroll-hint {
+    display: block;
   }
 
   .category-image-button {
@@ -1517,7 +1538,20 @@
   }
 
   .gallery-image {
-    height: 280px;
+    height: clamp(280px, 92vw, 360px);
+    scroll-snap-align: start;
+  }
+
+  .gallery-image img {
+    box-sizing: border-box;
+    padding: 8px;
+    background: var(--color-panel);
+    object-fit: contain;
+  }
+
+  .gallery-scroll-hint {
+    margin-top: -14px;
+    font-size: 10px;
   }
 
   .store-layout > img {
