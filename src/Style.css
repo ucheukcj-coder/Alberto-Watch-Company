@@ -1304,8 +1304,19 @@
 }
 
 @media (max-width: 700px) {
-  .content-width {
-    width: calc(100% - 48px);
+ .gallery-grid {
+  grid-auto-columns: minmax(0, 42%);
+  grid-auto-flow: column;
+  grid-template-columns: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: 12px;
+  scroll-padding-inline: 1px;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: var(--color-gold) var(--color-panel);
+  scrollbar-width: thin;
+  gap: 14px;
+}
   }
 
   .header-inner {
