@@ -1,5 +1,5 @@
 
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
 import Navbar from "./components/Navbar.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
@@ -14,8 +14,12 @@ import Sitemap from "./pages/Sitemap.jsx";
 import StoreLocator from "./pages/StoreLocator.jsx";
 import Support from "./pages/Support.jsx";
 import Technology from "./pages/Technology.jsx";
+import { useScrollReveal } from "./hooks/useScrollReveal.js";
 
 export default function App() {
+  const { pathname } = useLocation();
+  useScrollReveal(pathname);
+
   return (
     <CartProvider>
       <Navbar />
