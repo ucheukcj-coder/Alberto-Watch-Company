@@ -2,10 +2,9 @@ import { Link } from "react-router-dom";
 import InfoTicker from "./InfoTicker.jsx";
 
 const exploreLinks = [
-  ["/", "Home"],
-  ["/collections", "Collections"],
-  ["/technology", "Technology"],
-  ["/about", "About Us"],
+  ["/collections", "Shop all watches"],
+  ["/technology", "Watch technology"],
+  ["/about", "Our story"],
   ["/gallery", "Gallery"],
 ];
 
@@ -14,7 +13,12 @@ const collectionLinks = [
   ["/collections?category=vintage", "Vintage Watches"],
   ["/collections?category=smart", "Smart Watches"],
   ["/collections?category=classic", "Classic Watches"],
+];
+
+const serviceLinks = [
+  ["/store-locator", "Visit the store"],
   ["/support", "Repairs & appraisals"],
+  ["/contact", "Contact"],
 ];
 
 export default function Footer() {
@@ -33,10 +37,15 @@ export default function Footer() {
         <FooterLinkGroup title="Collections" links={collectionLinks} />
 
         <div className="footer-group">
-          <h2 className="footer-heading">Get in touch</h2>
-          <span className="footer-placeholder">Business email to be added</span>
-          <span className="footer-placeholder">Contact number to be added</span>
-          <Link className="footer-link" to="/contact">Contact us</Link>
+          <h2 className="footer-heading">Services & contact</h2>
+          {serviceLinks.map(([to, label]) => (
+            <Link className="footer-link" key={to} to={to}>
+              {label}
+            </Link>
+          ))}
+          <p className="footer-description">
+            Questions about a timepiece? Visit our contact page for help.
+          </p>
         </div>
       </div>
 

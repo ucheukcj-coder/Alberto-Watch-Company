@@ -12,17 +12,18 @@ export default function Contact() {
         />
         <div className="contact-layout">
           <div className="contact-copy">
-            <h2>A considered conversation.</h2>
-            <p>Tell us what you’re looking for. We’ll help with the details.</p>
-            <p><span>Email</span> · To be added</p>
-            <p><span>Phone</span> · To be added</p>
-            <p><span>Address</span> · To be confirmed</p>
+            <p className="eyebrow">Personal service</p>
+            <h2>How can we help?</h2>
+            <p>
+              Ask us about a timepiece, arrange an appraisal, or get advice on
+              repairs and care.
+            </p>
+            <p className="contact-response-note">
+              This demonstration form validates your enquiry but does not send it.
+            </p>
           </div>
           <div>
             <ContactForm />
-            <p className="form-note">
-              Demonstration form. Enquiry delivery will be enabled when a business email is provided.
-            </p>
           </div>
         </div>
       </div>

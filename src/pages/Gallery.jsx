@@ -1,5 +1,5 @@
 
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import GalleryLightbox from "../components/GalleryLightbox.jsx";
 import SectionIntro from "../components/SectionIntro.jsx";
 import detailImages from "../data/detailImages.json";
@@ -16,20 +16,48 @@ const images = [
   ...galleryImages,
 ];
 
-// Create at least 10 rows and distribute images evenly.
-const rowCount = Math.max(10, Math.ceil(images.length / 3));
+// Create rows with ~6-8 images per row for better horizontal scrolling
+const imagesPerRow = 7;
+const rowCount = Math.ceil(images.length / imagesPerRow);
 
 const galleryRows = Array.from(
   { length: rowCount },
   (_, rowIndex) =>
-    images.filter((_, imageIndex) => imageIndex % rowCount === rowIndex)
+    images.slice(rowIndex * imagesPerRow, (rowIndex + 1) * imagesPerRow)
 );
+
+const HOVER_DELAY = 4000; // 4 seconds
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [expandingKey, setExpandingKey] = useState(null);
+  const hoverTimeoutRef = useRef(null);
 
   const closeLightbox = useCallback(() => {
     setSelectedImage(null);
+  }, []);
+
+  const handleMouseEnter = useCallback((key) => {
+    hoverTimeoutRef.current = window.setTimeout(() => {
+      setExpandingKey(key);
+    }, HOVER_DELAY);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (hoverTimeoutRef.current) {
+      window.clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    setExpandingKey(null);
+  }, []);
+
+  const handleClick = useCallback((image) => {
+    if (hoverTimeoutRef.current) {
+      window.clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    setExpandingKey(null);
+    setSelectedImage(image);
   }, []);
 
   return (
@@ -42,7 +70,7 @@ export default function Gallery() {
 
         <p className="gallery-scroll-hint">
           Scroll horizontally through each collection to explore all{" "}
-          {images.length} images.
+          {images.length} images. Hover an image for 4 seconds to expand.
         </p>
 
         <div className="gallery-rows">
@@ -54,29 +82,32 @@ export default function Gallery() {
               aria-label={`Watch photography collection ${rowIndex + 1}`}
               tabIndex={0}
             >
-              {rowImages.map((image, index) => (
-                <button
-                  className="gallery-image"
-                  key={`${rowIndex}-${image.src}`}
-                  type="button"
-                  aria-label={`Enlarge image: ${image.caption}`}
-                  onClick={() => setSelectedImage(image)}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    loading="lazy"
-                  />
+              {rowImages.map((image, index) => {
+                const key = `${rowIndex}-${image.src}`;
+                const isExpanding = expandingKey === key;
 
-                  <span className="gallery-zoom-label">
-                    View larger
-                  </span>
+                return (
+                  <button
+                    className={`gallery-image${isExpanding ? " is-expanding" : ""}`}
+                    key={key}
+                    type="button"
+                    aria-label={`Enlarge image: ${image.caption}`}
+                    onClick={() => handleClick(image)}
+                    onMouseEnter={() => handleMouseEnter(key)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      loading="lazy"
+                    />
 
-                  <span className="visually-hidden">
-                    Gallery image {index + 1}
-                  </span>
-                </button>
-              ))}
+                    <span className="visually-hidden">
+                      Gallery image {index + 1}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           ))}
         </div>

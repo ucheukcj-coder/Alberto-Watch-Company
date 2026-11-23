@@ -1,14 +1,12 @@
 
 import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import useVisitorCount from "../hooks/useVisitorCount.js";
 import { useCart } from "../context/CartContext.jsx";
 
 const links = [
-  ["/", "Home"],
   ["/collections", "Collections"],
   ["/technology", "Technology"],
-  ["/about", "About Us"],
+  ["/about", "Our Story"],
   ["/gallery", "Gallery"],
   ["/store-locator", "Store Locator"],
   ["/support", "Support"],
@@ -17,19 +15,12 @@ const links = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { count, error } = useVisitorCount();
   const { cartCount } = useCart();
   const location = useLocation();
 
   useEffect(() => {
     setMenuOpen(false);
   }, [location.pathname]);
-
-  const visitLabel = error
-    ? error
-    : count === null
-      ? "Loading local count"
-      : `Your visits · ${count}`;
 
   return (
     <header className={`site-header${location.pathname === "/" ? " site-header-home" : ""}`}>
@@ -38,10 +29,6 @@ export default function Navbar() {
           <span className="wordmark-name">ALBERTO</span>
           <span className="wordmark-subtitle">WATCH COMPANY</span>
         </Link>
-
-        <span className="visitor-count" aria-live="polite">
-          {visitLabel}
-        </span>
 
         <button
           className="menu-toggle"
@@ -81,7 +68,15 @@ export default function Navbar() {
             }
             aria-label={`Shopping bag, ${cartCount} items`}
           >
-            <span aria-hidden="true">♧</span>
+            <svg
+              className="cart-nav-icon"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path d="M5 8h14l-1 13H6L5 8Z" />
+              <path d="M9 9V6a3 3 0 0 1 6 0v3" />
+            </svg>
             Bag
             <span className="cart-count">{cartCount}</span>
           </NavLink>

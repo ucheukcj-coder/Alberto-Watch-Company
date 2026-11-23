@@ -10,7 +10,7 @@ export default function ContactForm() {
     if (!form.reportValidity()) return;
 
     setFeedback(
-      "This demo form has validated your message, but it has not been sent. Contact delivery is not connected yet.",
+      "Your enquiry is complete. This demonstration form does not send messages.",
     );
     form.reset();
   }
@@ -45,7 +45,7 @@ export default function ContactForm() {
           minLength="10"
         />
       </label>
-      <button className="button button-gold" type="submit">Send Message</button>
+      <button className="button button-gold" type="submit">Submit demo enquiry</button>
       <p className="form-feedback" aria-live="polite" role="status">{feedback}</p>
     </form>
   );
