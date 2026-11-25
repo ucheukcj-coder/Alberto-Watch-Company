@@ -8,14 +8,13 @@ import watches from "../data/watches.json";
 
 const images = [
   ...watches.map((watch) => ({
-    src: watch.image,
+    src: watch.image, // Maps "image" from watches.json to "src"
     alt: watch.alt,
     caption: `${watch.brand} ${watch.model}`,
   })),
-  ...detailImages,
-  ...galleryImages,
+  ...detailImages.map(img => ({ ...img, src: img.src || img.image })), 
+  ...galleryImages.map(img => ({ ...img, src: img.src || img.image })),
 ];
-
 // Create rows with ~6-8 images per row for better horizontal scrolling
 const imagesPerRow = 7;
 const rowCount = Math.ceil(images.length / imagesPerRow);
