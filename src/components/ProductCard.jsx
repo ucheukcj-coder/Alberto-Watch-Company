@@ -10,7 +10,7 @@ export default function ProductCard({ product, onViewDetails }) {
   const handleAddToCart = () => {
     addToCart(product);
     setIsAdded(true);
-    
+
     // Reset after 2 seconds
     setTimeout(() => setIsAdded(false), 2000);
   };
@@ -40,13 +40,15 @@ export default function ProductCard({ product, onViewDetails }) {
             View Details
           </button>
 
+
           <button
             className={`product-checkout-link ${isAdded ? 'is-added' : ''}`}
             type="button"
-            onClick={handleAddToCart} 
-            disabled={isAdded} // Prevent double clicking
+            onClick={handleAddToCart}
+            disabled={isAdded}
+            style={{ minWidth: '110px' }} // Stable width for mobile
           >
-            {isAdded ? "✓ Added" : "Add to Cart"} 
+            {isAdded ? "✓ Added" : "Add to Cart"}
           </button>
         </div>
       </div>

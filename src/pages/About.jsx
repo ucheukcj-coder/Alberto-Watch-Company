@@ -10,16 +10,21 @@ export default function About() {
       <div className="content-width">
         <SectionIntro
           eyebrow="04 / Our philosophy"
-          title="More than time. It’s a statement."
+          title="More than a watch. A story that lasts."
           description="A watch is personal. It marks a milestone, carries a memory and becomes part of your story."
         />
         <div className="editorial-layout">
           <div className="editorial-copy">
             <p>
-              At Alberto Watch Company, we bring together carefully selected luxury
-              timepieces, attentive repair services and professional appraisals. From your
-              first watch to a treasured heirloom, we help you choose well and care for it
-              beautifully.
+             It began with a simple fascination — not just with watches, but with what they represent. Every second carries a moment, every moment becomes a memory, and every watch tells a story beyond the hands on its dial.
+
+Our journey started with a small collection, a curiosity for timeless design, and a belief that a great watch should mean more than simply telling time. We spent years exploring craftsmanship, studying the details, and searching for the perfect balance between elegance, precision, and character.
+
+Over time, that passion evolved into something greater. We set out to create a collection for people who value the moments that matter — those who appreciate quiet confidence, lasting quality, and design that never needs to chase trends.
+
+Today, our watches are inspired by the past, designed for the present, and made to accompany the moments that shape your future.
+
+Time moves forward. Style stays timeless.
             </p>
             <Link className="button button-gold" to="/contact">Learn More</Link>
           </div>
