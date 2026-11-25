@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add to Cart Button</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridjs@5.0.2/dist/theme/mermaid.min.css" integrity="sha384-jZvDSsmGB9oGGT/4l9bHXGoAv1OxvG/cFmSo0dZaSqmBgvQTKDBFAMftlXTmMbNW" crossorigin="anonymous">
+  <style>
+    :root { color-scheme: light; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f8f9fa;
+      margin: 0;
+    }
+    .cart-button {
+      padding: 14px 32px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      background: #2c3e50;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .cart-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .cart-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .cart-button:active {
+      transform: translateY(1px);
+    }
+    .cart-button.added {
+      background: #27ae60;
+    }
+    .cart-button.added::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      line-height: 1;
+    }
+    .cart-button .notification {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #e74c3c;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <button class="cart-button" id="cartBtn">
+    Add to Cart
+    <span class="notification" style="display:none;">1</span>
+  </button>
+
+  <script>
+    // State
+    let cartCount = 0;
+    const cartBtn = document.getElementById('cartBtn');
+
+    // Show notification function
+    function showNotification() {
+      const notification = cartBtn.querySelector('.notification');
+      notification.style.display = 'flex';
+    }
+
+    // Hide notification function
+    function hideNotification() {
+      const notification = cartBtn.querySelector('.notification');
+      notification.style.display = 'none';
+    }
+
+    // Add to cart handler
+    cartBtn.addEventListener('click', function() {
+      cartCount++;
+
+      // Add 'added' class for checked visual
+      this.classList.add('added');
+
+      // Show checkmark
+      // The ::after is already handled via CSS, but we ensure it's visible
+
+      // Show notification
+      showNotification();
+
+      // Remove added class after 2 seconds, then hide checkmark
+      setTimeout(() => {
+        this.classList.remove('added');
+        hideNotification();
+      }, 2000);
+    });
+
+    // Initial notification setup
+    showNotification();
+  </script>
+</body>
+</html>
