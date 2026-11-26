@@ -15,6 +15,7 @@ const links = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { cartCount } = useCart();
   const location = useLocation();
 
@@ -22,8 +23,26 @@ export default function Navbar() {
     setMenuOpen(false);
   }, [location.pathname]);
 
+  // Handle scroll to pin header
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector('.site-header');
+      if (!header) return;
+
+      const headerHeight = header.offsetHeight;
+      const shouldPin = window.scrollY > headerHeight;
+
+      if (shouldPin !== isScrolled) {
+        setIsScrolled(shouldPin);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isScrolled]);
+
   return (
-    <header className={`site-header${location.pathname === "/" ? " site-header-home" : ""}`}>
+    <header className={`site-header${location.pathname === "/" ? " site-header-home" : ""}${isScrolled ? " is-pinned" : ""}`}>
       <div className="header-inner">
         <Link className="wordmark" to="/" aria-label="Alberto Watch Company home">
           <span className="wordmark-name">ALBERTO</span>

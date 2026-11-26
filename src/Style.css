@@ -26,6 +26,34 @@
   position: relative;
   z-index: 20;
   background: var(--color-background);
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+}
+
+.site-header.is-pinned {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(0);
+  box-shadow: 0 4px 24px rgb(0 0 0 / 40%);
+  background: rgb(8 8 8 / 96%);
+  backdrop-filter: blur(12px);
+  animation: slideDown 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-header-home.is-pinned {
+  background: rgb(8 8 8 / 96%);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .header-inner {
@@ -34,6 +62,19 @@
   display: flex;
   align-items: center;
   gap: 28px;
+}
+
+.site-header.is-pinned .header-inner {
+  min-height: 72px;
+  padding: 12px 24px;
+}
+
+.site-header.is-pinned .wordmark-name {
+  font-size: 30px;
+}
+
+.site-header.is-pinned .wordmark-subtitle {
+  font-size: 9px;
 }
 
 .wordmark {
@@ -677,7 +718,72 @@
 .product-checkout-link:hover {
   background: #dfc27e;
   border-color: #dfc27e;
-  color: var(--color-background); /* Add this line to keep text dark */
+  color: var(--color-background);
+}
+
+/* 3D Flip Animation for Product Cards */
+.product-card {
+  perspective: 1000px;
+}
+
+.product-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.product-card.flipping .product-card-inner {
+  transform: rotateY(180deg);
+}
+
+.product-card.added .product-card-inner {
+  transform: rotateY(180deg);
+}
+
+.product-card-front,
+.product-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  backface-visibility: hidden;
+  border-radius: 4px;
+  padding-bottom: 16px;
+  background: var(--color-panel);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-back {
+  transform: rotateY(180deg);
+  justify-content: center;
+  align-items: center;
+}
+
+.product-card-back-content {
+  text-align: center;
+  color: var(--color-gold);
+}
+
+.checkmark {
+  font-size: 48px;
+  line-height: 1;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.product-card-back-content p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Keep existing product card image button height */
+.product-image-button {
+  height: 270px;
 }
 
 .empty-category {
@@ -843,6 +949,38 @@
   color: var(--color-muted);
   font-size: 15px;
   line-height: 1.9;
+}
+
+/* Story section specific styles */
+.story-paragraph {
+  margin: 0 0 24px;
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.9;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: storyFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.story-paragraph:nth-child(1) { animation-delay: 100ms; }
+.story-paragraph:nth-child(2) { animation-delay: 200ms; }
+.story-paragraph:nth-child(3) { animation-delay: 300ms; }
+.story-paragraph:nth-child(4) { animation-delay: 400ms; }
+.story-paragraph:nth-child(5) { animation-delay: 500ms; }
+
+@keyframes storyFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.story-cta {
+  margin-top: 16px;
+  display: inline-flex;
+  animation: storyFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 600ms;
+  opacity: 0;
 }
 
 .editorial-image {
@@ -1468,6 +1606,28 @@
   border-top: 1px solid var(--color-line);
   color: var(--color-muted);
   background: #0c0c0c;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms ease;
+}
+
+.ticker.is-pinned {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  box-shadow: 0 -4px 24px rgb(0 0 0 / 40%);
+  animation: slideUp 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .ticker-track {
@@ -1808,6 +1968,11 @@
     font-size: 13px;
   }
 
+  .story-paragraph {
+    font-size: 13px;
+    margin: 0 0 20px;
+  }
+
   /* MOBILE HORIZONTAL GALLERY */
 
   .gallery-scroll-hint {
@@ -1960,6 +2125,15 @@
   .ticker-action {
     right: 6px;
     padding: 8px;
+  }
+
+  .ticker.is-pinned {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    box-shadow: 0 -4px 24px rgb(0 0 0 / 40%);
   }
 }
 
